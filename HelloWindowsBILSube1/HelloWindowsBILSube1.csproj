@@ -52,11 +52,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm1.Designer.cs">
+      <DependentUpon>Frm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm2.Designer.cs">
+      <DependentUpon>Frm2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEvent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEvent.Designer.cs">
       <DependentUpon>frmEvent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGiris.Designer.cs">
+      <DependentUpon>frmGiris.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOyun.cs">
       <SubType>Form</SubType>
@@ -69,8 +87,17 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Frm1.resx">
+      <DependentUpon>Frm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm2.resx">
+      <DependentUpon>Frm2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEvent.resx">
       <DependentUpon>frmEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGiris.resx">
+      <DependentUpon>frmGiris.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOyun.resx">
       <DependentUpon>frmOyun.cs</DependentUpon>

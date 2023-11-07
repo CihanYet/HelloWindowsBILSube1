@@ -16,7 +16,7 @@ namespace HelloWindowsBILSube1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmOyun());
+            Application.Run(new frmGiris());
         }
     }
 }

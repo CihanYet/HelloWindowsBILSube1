@@ -14,25 +14,45 @@ namespace HelloWindowsBILSube1
     public partial class frmOyun : Form
     {
         int skor = 0;
-        int sure = 3;
-        public frmOyun()
+        int sure = 10;
+        public frmOyun(string ad, string soyad)
         {
             InitializeComponent();
             lblSure.Text = sure.ToString();
+            lblKullanici.Text = $"{ad} {soyad}";
         }
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
         {
+            Button b = (Button)sender;
+
             if (!tmrSure.Enabled)
             {
                 tmrSure.Start();
             }
 
             var rnd = new Random();
-            btnYakala.Location = new Point(rnd.Next(this.ClientSize.Width - btnYakala.Width - pnlBilgi.Width), rnd.Next(this.ClientSize.Height - btnYakala.Height));
-            skor++;
+            b.Location = new Point(rnd.Next(this.ClientSize.Width - b.Width - pnlBilgi.Width), rnd.Next(this.ClientSize.Height - b.Height));
+            if (b.Name == "btnYakala")
+            {
+                skor++;
+            }
+            else
+            {
+                skor -= 5;
+            }
+
             lblSkor.Text = skor.ToString();
 
+            if (skor % 10 == 0)
+            {
+                var btn = new Button();
+                btn.Size = new Size(50, 50);
+                btn.BackColor = Color.Red;
+                btn.Location = new Point(rnd.Next(this.ClientSize.Width - btn.Width - pnlBilgi.Width), rnd.Next(this.ClientSize.Height - btn.Height));
+                btn.MouseMove += button1_MouseMove;
+                this.Controls.Add(btn);
+            }
         }
 
         private void frmOyun_SizeChanged(object sender, EventArgs e)
@@ -45,6 +65,12 @@ namespace HelloWindowsBILSube1
         {
             sure--;
             lblSure.Text = sure.ToString();
+            if (sure == 0)
+            {
+                tmrSure.Stop();
+                btnYakala.Enabled = false;
+                MessageBox.Show($"Süreniz doldu!Skorunuz:{skor}");
+            }
         }
     }
 }

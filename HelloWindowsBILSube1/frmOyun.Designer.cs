@@ -34,6 +34,7 @@
             this.lblSkor = new System.Windows.Forms.Label();
             this.tmrSure = new System.Windows.Forms.Timer(this.components);
             this.lblSure = new System.Windows.Forms.Label();
+            this.lblKullanici = new System.Windows.Forms.Label();
             this.pnlBilgi.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@
             // pnlBilgi
             // 
             this.pnlBilgi.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.pnlBilgi.Controls.Add(this.lblKullanici);
             this.pnlBilgi.Controls.Add(this.lblSure);
             this.pnlBilgi.Controls.Add(this.lblSkor);
             this.pnlBilgi.Dock = System.Windows.Forms.DockStyle.Right;
@@ -81,6 +83,14 @@
             this.lblSure.Size = new System.Drawing.Size(0, 25);
             this.lblSure.TabIndex = 1;
             // 
+            // lblKullanici
+            // 
+            this.lblKullanici.AutoSize = true;
+            this.lblKullanici.Location = new System.Drawing.Point(30, 306);
+            this.lblKullanici.Name = "lblKullanici";
+            this.lblKullanici.Size = new System.Drawing.Size(0, 13);
+            this.lblKullanici.TabIndex = 2;
+            // 
             // frmOyun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,5 +114,6 @@
         private System.Windows.Forms.Label lblSkor;
         private System.Windows.Forms.Timer tmrSure;
         private System.Windows.Forms.Label lblSure;
+        private System.Windows.Forms.Label lblKullanici;
     }
 }
