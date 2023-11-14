@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             this.grpKullanici = new System.Windows.Forms.GroupBox();
-            this.lblAd = new System.Windows.Forms.Label();
-            this.lblSoyad = new System.Windows.Forms.Label();
-            this.txtAd = new System.Windows.Forms.TextBox();
             this.txtSoyad = new System.Windows.Forms.TextBox();
+            this.txtAd = new System.Windows.Forms.TextBox();
+            this.lblSoyad = new System.Windows.Forms.Label();
+            this.lblAd = new System.Windows.Forms.Label();
             this.btnBaslat = new System.Windows.Forms.Button();
+            this.grpSeviye = new System.Windows.Forms.GroupBox();
+            this.rdKolay = new System.Windows.Forms.RadioButton();
+            this.rdOrta = new System.Windows.Forms.RadioButton();
+            this.rdZor = new System.Windows.Forms.RadioButton();
             this.grpKullanici.SuspendLayout();
+            this.grpSeviye.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpKullanici
@@ -50,14 +55,19 @@
             this.grpKullanici.TabStop = false;
             this.grpKullanici.Text = "Kullanıcı Bilgileri";
             // 
-            // lblAd
+            // txtSoyad
             // 
-            this.lblAd.AutoSize = true;
-            this.lblAd.Location = new System.Drawing.Point(27, 39);
-            this.lblAd.Name = "lblAd";
-            this.lblAd.Size = new System.Drawing.Size(20, 13);
-            this.lblAd.TabIndex = 0;
-            this.lblAd.Text = "Ad";
+            this.txtSoyad.Location = new System.Drawing.Point(82, 67);
+            this.txtSoyad.Name = "txtSoyad";
+            this.txtSoyad.Size = new System.Drawing.Size(100, 20);
+            this.txtSoyad.TabIndex = 3;
+            // 
+            // txtAd
+            // 
+            this.txtAd.Location = new System.Drawing.Point(82, 32);
+            this.txtAd.Name = "txtAd";
+            this.txtAd.Size = new System.Drawing.Size(100, 20);
+            this.txtAd.TabIndex = 2;
             // 
             // lblSoyad
             // 
@@ -68,23 +78,18 @@
             this.lblSoyad.TabIndex = 1;
             this.lblSoyad.Text = "Soyad";
             // 
-            // txtAd
+            // lblAd
             // 
-            this.txtAd.Location = new System.Drawing.Point(82, 32);
-            this.txtAd.Name = "txtAd";
-            this.txtAd.Size = new System.Drawing.Size(100, 20);
-            this.txtAd.TabIndex = 2;
-            // 
-            // txtSoyad
-            // 
-            this.txtSoyad.Location = new System.Drawing.Point(82, 67);
-            this.txtSoyad.Name = "txtSoyad";
-            this.txtSoyad.Size = new System.Drawing.Size(100, 20);
-            this.txtSoyad.TabIndex = 3;
+            this.lblAd.AutoSize = true;
+            this.lblAd.Location = new System.Drawing.Point(27, 39);
+            this.lblAd.Name = "lblAd";
+            this.lblAd.Size = new System.Drawing.Size(20, 13);
+            this.lblAd.TabIndex = 0;
+            this.lblAd.Text = "Ad";
             // 
             // btnBaslat
             // 
-            this.btnBaslat.Location = new System.Drawing.Point(30, 162);
+            this.btnBaslat.Location = new System.Drawing.Point(30, 257);
             this.btnBaslat.Name = "btnBaslat";
             this.btnBaslat.Size = new System.Drawing.Size(216, 23);
             this.btnBaslat.TabIndex = 1;
@@ -92,17 +97,65 @@
             this.btnBaslat.UseVisualStyleBackColor = true;
             this.btnBaslat.Click += new System.EventHandler(this.btnBaslat_Click);
             // 
+            // grpSeviye
+            // 
+            this.grpSeviye.Controls.Add(this.rdZor);
+            this.grpSeviye.Controls.Add(this.rdOrta);
+            this.grpSeviye.Controls.Add(this.rdKolay);
+            this.grpSeviye.Location = new System.Drawing.Point(30, 159);
+            this.grpSeviye.Name = "grpSeviye";
+            this.grpSeviye.Size = new System.Drawing.Size(216, 81);
+            this.grpSeviye.TabIndex = 2;
+            this.grpSeviye.TabStop = false;
+            this.grpSeviye.Text = "Seviye İşlemleri";
+            // 
+            // rdKolay
+            // 
+            this.rdKolay.AutoSize = true;
+            this.rdKolay.Location = new System.Drawing.Point(30, 38);
+            this.rdKolay.Name = "rdKolay";
+            this.rdKolay.Size = new System.Drawing.Size(51, 17);
+            this.rdKolay.TabIndex = 0;
+            this.rdKolay.TabStop = true;
+            this.rdKolay.Text = "Kolay";
+            this.rdKolay.UseVisualStyleBackColor = true;
+            // 
+            // rdOrta
+            // 
+            this.rdOrta.AutoSize = true;
+            this.rdOrta.Location = new System.Drawing.Point(87, 38);
+            this.rdOrta.Name = "rdOrta";
+            this.rdOrta.Size = new System.Drawing.Size(45, 17);
+            this.rdOrta.TabIndex = 1;
+            this.rdOrta.TabStop = true;
+            this.rdOrta.Text = "Orta";
+            this.rdOrta.UseVisualStyleBackColor = true;
+            // 
+            // rdZor
+            // 
+            this.rdZor.AutoSize = true;
+            this.rdZor.Location = new System.Drawing.Point(138, 38);
+            this.rdZor.Name = "rdZor";
+            this.rdZor.Size = new System.Drawing.Size(41, 17);
+            this.rdZor.TabIndex = 2;
+            this.rdZor.TabStop = true;
+            this.rdZor.Text = "Zor";
+            this.rdZor.UseVisualStyleBackColor = true;
+            // 
             // frmGiris
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 212);
+            this.ClientSize = new System.Drawing.Size(276, 303);
+            this.Controls.Add(this.grpSeviye);
             this.Controls.Add(this.btnBaslat);
             this.Controls.Add(this.grpKullanici);
             this.Name = "frmGiris";
             this.Text = "frmGiris";
             this.grpKullanici.ResumeLayout(false);
             this.grpKullanici.PerformLayout();
+            this.grpSeviye.ResumeLayout(false);
+            this.grpSeviye.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -115,5 +168,9 @@
         private System.Windows.Forms.TextBox txtSoyad;
         private System.Windows.Forms.TextBox txtAd;
         private System.Windows.Forms.Button btnBaslat;
+        private System.Windows.Forms.GroupBox grpSeviye;
+        private System.Windows.Forms.RadioButton rdZor;
+        private System.Windows.Forms.RadioButton rdOrta;
+        private System.Windows.Forms.RadioButton rdKolay;
     }
 }

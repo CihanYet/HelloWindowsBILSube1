@@ -15,11 +15,23 @@ namespace HelloWindowsBILSube1
     {
         int skor = 0;
         int sure = 10;
-        public frmOyun(string ad, string soyad)
+        public frmOyun(string ad, string soyad, string seviye)
         {
             InitializeComponent();
             lblSure.Text = sure.ToString();
             lblKullanici.Text = $"{ad} {soyad}";
+            if (seviye=="Kolay")
+            {
+                this.Size = new Size(300, 300);
+            }
+            else if (seviye=="Orta")
+            {
+                this.Size = new Size(500, 500);
+            }
+            else if (seviye=="Zor")
+            {
+                this.Size = new Size(800, 800);
+            }
         }
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
