@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,26 +12,29 @@ using System.Windows.Forms;
 
 namespace HelloWindowsBILSube1
 {
+    
     public partial class frmOyun : Form
     {
         int skor = 0;
         int sure = 10;
-        public frmOyun(string ad, string soyad, string seviye)
+        public frmOyun(GameInfo bilgi)
         {
             InitializeComponent();
             lblSure.Text = sure.ToString();
-            lblKullanici.Text = $"{ad} {soyad}";
-            if (seviye=="Kolay")
+            lblKullanici.Text = $"{bilgi.Ad} {bilgi.Soyad}";
+            switch (bilgi.Seviye)
             {
-                this.Size = new Size(300, 300);
-            }
-            else if (seviye=="Orta")
-            {
-                this.Size = new Size(500, 500);
-            }
-            else if (seviye=="Zor")
-            {
-                this.Size = new Size(800, 800);
+                case Level.Kolay:
+                    this.Size = new Size(300, 300);
+                    break;
+                case Level.Orta:
+                    this.Size = new Size(500, 500);
+                    break;
+                case Level.Zor:
+                    this.Size = new Size(800, 800);
+                    break;
+                default:
+                    break;
             }
         }
 

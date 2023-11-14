@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameLib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,23 +26,31 @@ namespace HelloWindowsBILSube1
             }
             else
             {
-                var frm = new frmOyun(txtAd.Text, txtSoyad.Text);
+                Level seviye;
                 if (rdKolay.Checked)
                 {
-                    frm.Size = new Size(300, 300);
+                    seviye = Level.Kolay;
                 }
                 else if (rdOrta.Checked)
                 {
-                    frm.Size = new Size(500, 500);
+                    seviye = Level.Orta;
                 }
                 else if (rdZor.Checked)
                 {
-                    frm.Size = new Size(800, 800);
+                    seviye = Level.Zor;
                 }
                 else
                 {
                     MessageBox.Show("Seviye seçiniz!");
+                    return;
                 }
+
+                //var info = new GameInfo();
+                //info.Ad = txtAd.Text.Trim();
+                //info.Soyad=txtSoyad.Text.Trim();
+                //info.Seviye = seviye;
+
+                var frm = new frmOyun(new GameInfo { Ad=txtAd.Text.Trim(),Soyad=txtSoyad.Text.Trim(),Seviye=seviye});
                 frm.Show();
             }
         }
