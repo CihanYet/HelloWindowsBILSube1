@@ -18,16 +18,39 @@ namespace OkulAppSube1BIL
             InitializeComponent();
         }
 
-        private void btnKaydet_Click(object sender, EventArgs e)
+        bool OgrenciEkle(string ad, string soyad, string numara)
         {
             SqlConnection cn = null;
             try
             {
                 cn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=OkulDbSube1BIL;Integrated Security=true");
-                SqlCommand cmd = new SqlCommand($"Insert into tblOgrenciler values ('{txtAd.Text.Trim()}','{txtSoyad.Text.Trim()}','{txtNumara.Text.Trim()}')", cn);
+                SqlCommand cmd = new SqlCommand($"Insert into tblOgrenciler values ('{ad}','{soyad}','{numara}')", cn);
                 cn.Open();
                 int sonuc = cmd.ExecuteNonQuery();
-                MessageBox.Show(sonuc > 0 ? "Ekleme Başarılı" : "Ekleme Başarısız!");
+                return sonuc > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (cn != null && cn.State != ConnectionState.Closed)
+                {
+                    cn.Close();
+                }
+            }
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OgrenciEkle(txtAd.Text.Trim(), txtSoyad.Text.Trim(), txtNumara.Text.Trim());
             }
             catch (SqlException ex)
             {
@@ -43,14 +66,7 @@ namespace OkulAppSube1BIL
             }
             catch (Exception)
             {
-                MessageBox.Show("Bir hata oluştu!");
-            }
-            finally
-            {
-                if (cn != null && cn.State != ConnectionState.Closed)
-                {
-                    cn.Close();
-                }
+                MessageBox.Show("Bilinmeyen Hata!!");
             }
         }
     }
