@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkulAppSube1BIL", "OkulAppSube1BIL\OkulAppSube1BIL.csproj", "{59D7057C-E57D-45BB-A20E-84BF2A1B90C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OkulApp.MODEL", "OkulApp.MODEL\OkulApp.MODEL.csproj", "{DD4A61A6-EC42-49EB-AF59-4016213C09E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{59D7057C-E57D-45BB-A20E-84BF2A1B90C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59D7057C-E57D-45BB-A20E-84BF2A1B90C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59D7057C-E57D-45BB-A20E-84BF2A1B90C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD4A61A6-EC42-49EB-AF59-4016213C09E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD4A61A6-EC42-49EB-AF59-4016213C09E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD4A61A6-EC42-49EB-AF59-4016213C09E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD4A61A6-EC42-49EB-AF59-4016213C09E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

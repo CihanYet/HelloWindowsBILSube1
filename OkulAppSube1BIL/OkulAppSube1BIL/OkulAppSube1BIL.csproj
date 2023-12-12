@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OkulApp.MODEL\OkulApp.MODEL.csproj">
+      <Project>{DD4A61A6-EC42-49EB-AF59-4016213C09E1}</Project>
+      <Name>OkulApp.MODEL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

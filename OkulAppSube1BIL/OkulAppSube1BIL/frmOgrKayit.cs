@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OkulApp.MODEL;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,20 +19,29 @@ namespace OkulAppSube1BIL
             InitializeComponent();
         }
 
-        bool OgrenciEkle(string ad, string soyad, string numara)
+        bool OgrenciEkle(Ogrenci ogr)
         {
             SqlConnection cn = null;
             try
             {
                 cn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=OkulDbSube1BIL;Integrated Security=true");
-                SqlCommand cmd = new SqlCommand($"Insert into tblOgrenciler values ('{ad}','{soyad}','{numara}')", cn);
+                SqlCommand cmd = new SqlCommand($"Insert into tblOgrenciler values (@Ad,@Soyad,@Numara)", cn);
+
+                SqlParameter[] p = {
+                    new SqlParameter("@Ad",ogr.Ad),
+                    new SqlParameter("@Soyad",ogr.Soyad),
+                    new SqlParameter("@Numara",ogr.Numara)
+                };
+
+                cmd.Parameters.AddRange(p);
+
                 cn.Open();
                 int sonuc = cmd.ExecuteNonQuery();
                 return sonuc > 0;
             }
             catch (SqlException ex)
             {
-                throw;
+                throw ex;
             }
             catch (Exception)
             {
@@ -50,7 +60,9 @@ namespace OkulAppSube1BIL
         {
             try
             {
-                OgrenciEkle(txtAd.Text.Trim(), txtSoyad.Text.Trim(), txtNumara.Text.Trim());
+                bool sonuc = OgrenciEkle(new Ogrenci { Ad = txtAd.Text.Trim(), Soyad = txtSoyad.Text.Trim(), Numara = txtNumara.Text.Trim() });
+
+                MessageBox.Show(sonuc ? "Ekleme Başarılı!" : "Ekleme Başarısız!!");
             }
             catch (SqlException ex)
             {
