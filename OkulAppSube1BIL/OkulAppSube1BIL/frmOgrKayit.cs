@@ -22,22 +22,26 @@ namespace OkulAppSube1BIL
         bool OgrenciEkle(Ogrenci ogr)
         {
             SqlConnection cn = null;
+            SqlCommand cmd = null;
             try
             {
-                cn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=OkulDbSube1BIL;Integrated Security=true");
-                SqlCommand cmd = new SqlCommand($"Insert into tblOgrenciler values (@Ad,@Soyad,@Numara)", cn);
+                using (cn = new SqlConnection(@"Data Source=.\SQLEXPRESS;Initial Catalog=OkulDbSube1BIL;Integrated Security=true"))
+                {
+                    using (cmd = new SqlCommand($"Insert into tblOgrenciler values (@Ad,@Soyad,@Numara)", cn))
+                    {
+                        SqlParameter[] p = {
+                             new SqlParameter("@Ad",ogr.Ad),
+                             new SqlParameter("@Soyad",ogr.Soyad),
+                             new SqlParameter("@Numara",ogr.Numara)
+                         };
 
-                SqlParameter[] p = {
-                    new SqlParameter("@Ad",ogr.Ad),
-                    new SqlParameter("@Soyad",ogr.Soyad),
-                    new SqlParameter("@Numara",ogr.Numara)
-                };
+                        cmd.Parameters.AddRange(p);
 
-                cmd.Parameters.AddRange(p);
-
-                cn.Open();
-                int sonuc = cmd.ExecuteNonQuery();
-                return sonuc > 0;
+                        cn.Open();
+                        int sonuc = cmd.ExecuteNonQuery();
+                        return sonuc > 0;
+                    }
+                }
             }
             catch (SqlException ex)
             {
@@ -47,13 +51,15 @@ namespace OkulAppSube1BIL
             {
                 throw;
             }
-            finally
-            {
-                if (cn != null && cn.State != ConnectionState.Closed)
-                {
-                    cn.Close();
-                }
-            }
+            //finally
+            //{
+            //    if (cn != null && cn.State != ConnectionState.Closed)
+            //    {
+            //        cn.Close();
+            //        cn.Dispose();
+            //        cmd.Dispose();
+            //    }
+            //}
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -82,4 +88,29 @@ namespace OkulAppSube1BIL
             }
         }
     }
+
+
+    interface ITransfer
+    {
+        int Eft(string gondericiiban, string aliciiban, double tutar);
+        int Havale(string gondericiiban, string aliciiban, double tutar);
+
+    }
+
+    class Transfer : ITransfer
+    {
+        public int Eft(string gondericiiban, string aliciiban, double tutar)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int Havale(string gondericiiban, string aliciiban, double tutar)
+        {
+            throw new NotImplementedException();
+        }
+
+        //
+    }
 }
+
+//Garbage Collector
