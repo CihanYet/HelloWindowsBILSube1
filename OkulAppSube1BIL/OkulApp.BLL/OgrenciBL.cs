@@ -1,4 +1,6 @@
-﻿using System;
+﻿using OkulApp.MODEL;
+using System;
+using System.Data.SqlClient;
 
 namespace OkulApp.BLL
 {
