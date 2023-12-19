@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OkulApp.BLL;
 
 namespace OkulAppSube1BIL
 {
@@ -17,16 +18,14 @@ namespace OkulAppSube1BIL
         public frmOgrKayit()
         {
             InitializeComponent();
-        }
-
-       
+        }       
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             try
             {
-                bool sonuc = OgrenciEkle(new Ogrenci { Ad = txtAd.Text.Trim(), Soyad = txtSoyad.Text.Trim(), Numara = txtNumara.Text.Trim() });
-
+                var obl = new OgrenciBL();
+                bool sonuc = obl.OgrenciEkle(new Ogrenci { Ad = txtAd.Text.Trim(), Soyad = txtSoyad.Text.Trim(), Numara = txtNumara.Text.Trim() });
                 MessageBox.Show(sonuc ? "Ekleme Başarılı!" : "Ekleme Başarısız!!");
             }
             catch (SqlException ex)
@@ -42,7 +41,7 @@ namespace OkulAppSube1BIL
                 }
             }
             catch (Exception)
-            {
+            {                
                 MessageBox.Show("Bilinmeyen Hata!!");
             }
         }
