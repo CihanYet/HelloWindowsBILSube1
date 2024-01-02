@@ -15,10 +15,12 @@ namespace OkulAppSube1BIL
 {
     public partial class frmOgrKayit : Form
     {
+
+        public int Ogrenciid { get; set; }
         public frmOgrKayit()
         {
             InitializeComponent();
-        }       
+        }
 
         private void btnKaydet_Click(object sender, EventArgs e)
         {
@@ -41,11 +43,39 @@ namespace OkulAppSube1BIL
                 }
             }
             catch (Exception)
-            {                
+            {
                 MessageBox.Show("Bilinmeyen Hata!!");
             }
         }
+
+        private void btnBul_Click(object sender, EventArgs e)
+        {
+            frmOgrBul frm = new frmOgrBul(this);
+            frm.Show();
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            var obl = new OgrenciBL();
+            obl.OgrenciGuncelle(new Ogrenci { Ad = txtAd.Text.Trim(), Soyad = txtSoyad.Text.Trim(), Numara = txtNumara.Text.Trim(), Ogrenciid = Ogrenciid });
+        }
+
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            var obl = new OgrenciBL();
+            obl.OgrenciSil(Ogrenciid);
+        }
     }
+
+    //Güncelleme Başarılı mesajı
+    //Güncelleme butonu aktifliği?
+    //Silme butonu aktifliği
+    //Silme işlemi mesajı
+    //Tüm işlemlerde try-catch
+    //Helperda bulunan connection ve commandlerin dispose edilmesi (IDisposable Pattern)
+    //Singleton Pattern (Sürkeli nesne oluşmadan tek nesne üstünden işlemlerin yapılması)
+    //Öğretmen entity'si için kalan CRUD işlemleri
+
 
 
     interface ITransfer
